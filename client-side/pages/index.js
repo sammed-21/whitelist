@@ -22,9 +22,9 @@ export default function Home() {
       const provider = await web3ModalRef.current.connect();
       const web3Provider = new providers.Web3Provider(provider);
       const { chainId } = await web3Provider.getNetwork();
-      if (chainId != 5) {
-        window.alert("change the network to goerli");
-        throw new Error("change the netwok to goerli");
+      if (chainId != 11155111) {
+        window.alert("change the network to sepolia");
+        throw new Error("change the netwok to sepolia");
       }
       if (needSinger) {
         const signer = web3Provider.getSigner();
@@ -126,7 +126,7 @@ export default function Home() {
   useEffect(() => {
     if (!walletConnected) {
       web3ModalRef.current = new Web3Modal({
-        network: "goerli",
+        network: "sepolia",
         providerOptions: {},
         disabledInjectedProvider: false,
       });
